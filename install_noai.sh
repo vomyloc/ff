@@ -14,7 +14,7 @@ sudo chown -R 1000:1000 vol_n8n
 sudo chmod -R 755 vol_n8n
 echo "--------- 🔴 Finish creating folder -----------"
 echo "--------- 🟢 Start docker compose up  -----------"
-wget https://raw.githubusercontent.com/thangnch/MIAI_n8n_dockercompose/refs/heads/main/compose_noai.yaml -O compose.yaml
+wget https://raw.githubusercontent.com/vomyloc/ff/refs/heads/main/compose_noai.yaml -O compose.yaml
 export EXTERNAL_IP=http://"$(hostname -I | cut -f1 -d' ')"
 export CURR_DIR=$(pwd)
 sudo -E docker compose up -d
