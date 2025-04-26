@@ -1,3 +1,4 @@
+
 services:
   svr_n8n:
     image: n8nio/n8n
@@ -5,14 +6,24 @@ services:
     environment:
       - N8N_SECURE_COOKIE=false
       - GENERIC_TIMEZONE=Asia/Ho_Chi_Minh
-      - N8N_EDITOR_BASE_URL=${EXTERNAL_IP}
-      - WEBHOOK_URL=${EXTERNAL_IP}
+      # Thiết lập URL cho trình soạn thảo và webhook sử dụng tên miền
+      - N8N_EDITOR_BASE_URL=https://n8n.anhbotdeptrao.site/
+      - WEBHOOK_URL=https://n8n.anhbotdeptrao.site/
+      # Thiết lập Host cho tên miền
+      - N8N_HOST=n8n.anhbotdeptrao.site
       - N8N_DEFAULT_BINARY_DATA_MODE=filesystem
       - N8N_MCP_ENABLED=true
       - N8N_MCP_MODE=server
-      - N8N_HOST=${EXTERNAL_IP}
-      - WEBHOOK_URL=https://n8n.anhbotdeptrai.site/
+      # Các biến ${EXTERNAL_IP} không cần thiết khi dùng tên miền cố định
+      # - N8N_EDITOR_BASE_URL=${EXTERNAL_IP} # Đã thay thế
+      # - WEBHOOK_URL=${EXTERNAL_IP}         # Đã thay thế
+      # - N8N_HOST=${EXTERNAL_IP}             # Đã thay thế
+      # - WEBHOOK_URL=https://n8n.anhbotdeptrai.site/ # Đã thay thế và sửa lỗi chính tả
     ports:
+      # Mở cổng 80 trên host và liên kết với cổng 5678 của container
+      # LƯU Ý: Để chạy với HTTPS (rất khuyến khích), bạn cần cấu hình Reverse Proxy
+      # (như Nginx, Caddy) trên VPS để xử lý SSL và chuyển tiếp traffic đến cổng này.
       - "80:5678"
     volumes:
       - ${CURR_DIR}/vol_n8n:/home/node/.n8n
+      
