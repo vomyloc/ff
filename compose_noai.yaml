@@ -7,10 +7,10 @@ services:
       - N8N_SECURE_COOKIE=false
       - GENERIC_TIMEZONE=Asia/Ho_Chi_Minh
       # Thiết lập URL cho trình soạn thảo và webhook sử dụng tên miền
-      - N8N_EDITOR_BASE_URL=https://n8n.anhbotdeptrao.site/
-      - WEBHOOK_URL=https://n8n.anhbotdeptrao.site/
+      - N8N_EDITOR_BASE_URL=https://n8n.anhbotdeptrai.site/
+      - WEBHOOK_URL=https://n8n.anhbotdeptrai.site/
       # Thiết lập Host cho tên miền
-      - N8N_HOST=n8n.anhbotdeptrao.site
+      - N8N_HOST=n8n.anhbotdeptrai.site
       - N8N_DEFAULT_BINARY_DATA_MODE=filesystem
       - N8N_MCP_ENABLED=true
       - N8N_MCP_MODE=server
